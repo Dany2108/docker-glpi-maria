@@ -31,7 +31,6 @@ services:
           PLUGINS: "all"
         depends_on: 
           - mariadb-glpi
-          - php-fpm
         ports: 
           - 30080:80
         networks: 
@@ -41,7 +40,7 @@ services:
 # CRON
 #
     crond: 
-        image: fametec/glpi:crond
+        image: fametec/glpi:latest
         restart: unless-stopped
         volumes:
           - glpi-volume:/usr/share/nginx/html/glpi:rw
